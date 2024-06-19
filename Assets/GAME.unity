@@ -365,6 +365,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraspeed: 1
+  cameraobject: {fileID: 0}
 --- !u!1 &553997714
 GameObject:
   m_ObjectHideFlags: 0
@@ -396,6 +397,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cameraspeed: 0
+  cameraobject: {fileID: 0}
 --- !u!4 &553997716
 Transform:
   m_ObjectHideFlags: 0
@@ -596,6 +598,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ced88a0d15a6647409ab1a273f90a97f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text3: {fileID: 0}
+  Coinsound2: {fileID: 0}
+  moveSpeed: 0
 --- !u!1 &1071849943
 GameObject:
   m_ObjectHideFlags: 0
@@ -644,6 +649,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerSpeed: 15
+  rb: {fileID: 0}
+  playerDirection: {x: 0, y: 0}
+  startingLives: 3
+  lives: 0
+  poweredUp: 0
+  Powerend: 0
+  Star: {fileID: 0}
 --- !u!212 &1071849946
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -886,6 +898,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bitcoin: {fileID: 995580260}
+  Monero: {fileID: 1392067839}
   minTime: 2
   maxTime: 10
   maxX: 7
@@ -893,6 +906,8 @@ MonoBehaviour:
   maxY: 0
   minY: -3
   timeBetweenSpawn: 0
+  spawnTime: 0
+  delay: 0
 --- !u!4 &1125996430
 Transform:
   m_ObjectHideFlags: 0
@@ -1099,6 +1114,12 @@ MonoBehaviour:
   speed: 15
   player: {fileID: 1071849943}
   gameOverPanel: {fileID: 1969770078}
+  player2: {fileID: 0}
+  livesdoge: {fileID: 0}
+  yelp: {fileID: 0}
+  ouch: {fileID: 0}
+  audioManager: {fileID: 0}
+  Explosion: {fileID: 0}
 --- !u!70 &1300925383
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1187,6 +1208,7 @@ MonoBehaviour:
   minY: -6
   timeBetweenSpawn: 12
   spawnTime: 6
+  score: {fileID: 0}
 --- !u!1 &1353934500
 GameObject:
   m_ObjectHideFlags: 0
@@ -1314,14 +1336,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 29acf46149392354692506743c2fadd7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Monero: {fileID: 8920536151001774626, guid: 99367e0c234431d4a931aa207296d46f, type: 3}
-  minTime: 5
-  maxTime: 20
-  maxX: 6
-  minX: -6
-  maxY: 3
-  minY: 0
-  timeBetweenSpawn: 10
 --- !u!4 &1380451458
 Transform:
   m_ObjectHideFlags: 0
@@ -1359,6 +1373,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 55a5e994ed3cbef429ddc32998fcd501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  text3: {fileID: 0}
+  Doge: {fileID: 0}
+  Coinsound: {fileID: 0}
 --- !u!58 &1392067842
 CircleCollider2D:
   m_ObjectHideFlags: 0

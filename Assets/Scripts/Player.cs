@@ -13,6 +13,9 @@ public class Player : MonoBehaviour
     public double Powerend;
     public Animator Star;
 
+    private Vector2 touchStartPos;
+    private Vector2 touchCurrentPos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,10 +28,51 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
+        // Reset player direction
+        playerDirection = Vector2.zero;
+
+        // Handling keyboard input
         float directionY = Input.GetAxisRaw("Vertical");
         float directionX = Input.GetAxisRaw("Horizontal");
-        playerDirection = new Vector2(directionX, directionY).normalized;
-        if (poweredUp == true && Time.timeSinceLevelLoad > Powerend)
+        Vector2 keyboardDirection = new Vector2(directionX, directionY);
+
+        // Handling touch input
+        if (Input.touchCount > 0)
+        {
+            Touch touch = Input.GetTouch(0);
+
+            if (touch.phase == TouchPhase.Began)
+            {
+                touchStartPos = touch.position;
+            }
+            else if (touch.phase == TouchPhase.Moved || touch.phase == TouchPhase.Stationary)
+            {
+                touchCurrentPos = touch.position;
+                Vector2 touchDelta = touchCurrentPos - touchStartPos;
+                if (Vector2.Distance(touchCurrentPos, rb.position) > 0.1f)
+                    playerDirection = new Vector2(touchDelta.x, touchDelta.y).normalized;
+                else
+                    playerDirection = Vector2.zero;
+            }
+        }
+
+        // Handling mouse input
+        if (Input.GetMouseButton(0))
+        {
+            Vector2 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            if (Vector2.Distance(mousePosition, rb.position) > 0.1f)
+                playerDirection = (mousePosition - rb.position).normalized;
+            else
+                playerDirection = Vector2.zero;
+        }
+
+        // If no touch or mouse input, use keyboard input
+        if (playerDirection == Vector2.zero)
+        {
+            playerDirection = keyboardDirection.normalized;
+        }
+
+        if (poweredUp && Time.timeSinceLevelLoad > Powerend)
         {
             poweredUp = false;
             Star.SetBool("Poweredup", false);
@@ -37,13 +81,16 @@ public class Player : MonoBehaviour
 
     public virtual void FixedUpdate()
     {
-        rb.velocity = new Vector2(playerDirection.x * playerSpeed, playerDirection.y * playerSpeed);
+        // Calculate movement direction
+        Vector2 movement = playerDirection.normalized * playerSpeed * Time.fixedDeltaTime;
 
-        Vector2 clampedPosition = rb.position;
-        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -7.5f, 7.5f);
-        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -4f, 4f);
-        rb.position = clampedPosition;
+        // Calculate target position
+        Vector2 targetPosition = rb.position + movement;
+
+        // Move towards the target position
+        rb.MovePosition(targetPosition); 
     }
+
 
     public void Power(double time)
     {
@@ -52,4 +99,3 @@ public class Player : MonoBehaviour
         Powerend = Time.timeSinceLevelLoad + time;
     }
 }
-
