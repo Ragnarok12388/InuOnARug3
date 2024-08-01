@@ -1,0 +1,8 @@
+{
+    "cid": "1770333698025525",
+    "alias": "ioar",
+    "pid": "DE_1770333698025528",
+    "platform": "",
+    "socket": "",
+    "containerPrefix": ""
+}

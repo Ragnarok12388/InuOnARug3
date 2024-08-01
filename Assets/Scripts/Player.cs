@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
     public double Powerend;
     public Animator Star;
 
-    private Vector2 touchStartPos;
-    private Vector2 touchCurrentPos;
+    public Vector2 touchStartPos;
+    public Vector2 touchCurrentPos;
 
     // Start is called before the first frame update
     void Start()

@@ -15,6 +15,10 @@ public class LaserDoge : Player
     // Update is called once per frame
     public override void Update()
     {
+        Vector2 clampedPosition = rb.position;
+        clampedPosition.x = Mathf.Clamp(clampedPosition.x, -7.5f, 7.5f);
+        clampedPosition.y = Mathf.Clamp(clampedPosition.y, -4f, 4f);
+        rb.position = clampedPosition;
         float directionY = Input.GetAxisRaw("Vertical");
         float directionX = Input.GetAxisRaw("Horizontal");
         playerDirection = new Vector2(directionX, directionY).normalized;

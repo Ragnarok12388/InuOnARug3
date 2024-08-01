@@ -3,6 +3,15 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using Beamable;
+using Beamable.Common.Api.Leaderboards;
+using Beamable.Common.Content;
+using Solana.Unity.Soar.Types;
+using System.Threading.Tasks;
+using Beamable.Common.Leaderboards;
+using Beamable.Common.Api;
+using Beamable.Common;
+
 
 public class TextTMP : MonoBehaviour
 {
@@ -10,12 +19,25 @@ public class TextTMP : MonoBehaviour
     public AudioManager Levelchange;
     public int score = 0;
     public bool spawnenemies;
+    public string leaderboardID = "Leaderboardonarug"; // Replace with your leaderboard ID
+    private BeamContext beamContext;
+    [SerializeField]
+    private LeaderboardRef leaderboardref = null;
+    private LeaderboardContent leaderboardcontent = null;
     public void Awake()
 
     {
+        //leaderboardref.SetId(leaderboardID);
         display = GetComponent<TMP_Text>();
         // Assuming you want to display the initial score when the game starts
         UpdateScoreText();
+        InitializeBeamable();
+    }
+    private async void InitializeBeamable()
+    {
+        beamContext = BeamContext.Default;
+        //leaderboardcontent = await leaderboardref.Resolve();
+        Debug.Log("Beamable initialized successfully.");
     }
 
     // Call this method to update the score text
@@ -91,6 +113,24 @@ public class TextTMP : MonoBehaviour
             }
             spawnenemies = false;
             StartCoroutine(Pause(5.0f, "Endgame Load Scene"));
+        }
+    }
+    public async Task SubmitScoreToLeaderboard()
+    {
+        await beamContext.OnReady;
+        if (beamContext == null)
+        {
+            Debug.LogError("Beamable context is not initialized.");
+        }
+        try
+        {
+
+            await beamContext.Api.LeaderboardService.SetScore(leaderboardref.Id, score);
+            Debug.Log("Score submitted to leaderboard successfully.");
+        }
+        catch (System.Exception ex)
+        {
+            Debug.LogError("Failed to submit score to leaderboard: " + ex.Message);
         }
     }
     IEnumerator Pause(float delay, string Level)
