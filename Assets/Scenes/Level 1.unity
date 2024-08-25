@@ -180,6 +180,61 @@ SpriteRenderer:
   m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &61848013
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 61848015}
+  - component: {fileID: 61848016}
+  m_Layer: 0
+  m_Name: LitedogeSpawn (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &61848015
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61848013}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &61848016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 61848013}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2c64f0192ed5c2541a113f01d5c8fe42, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Litedoge: {fileID: 966734305}
+  Monero: {fileID: 130886180}
+  minTime: 5
+  maxTime: 10
+  maxX: 10
+  minX: 0
+  maxY: 11
+  minY: 3
+  timeBetweenSpawn: 20
+  spawnTime: 0
+  delay: 15
 --- !u!1001 &77409610
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1135,6 +1190,38 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 555861761}
   m_CullTransparentMesh: 1
+--- !u!1 &667662611
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 667662612}
+  m_Layer: 0
+  m_Name: Litecoin (2)
+  m_TagString: Litecoin
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &667662612
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 667662611}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 966734306}
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &821863509
 GameObject:
   m_ObjectHideFlags: 0
@@ -1167,6 +1254,31 @@ Transform:
   - {fileID: 1071849944}
   m_Father: {fileID: 553997716}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &966734305 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6136637261404170513, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+  m_PrefabInstance: {fileID: 1571803623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &966734306 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+  m_PrefabInstance: {fileID: 1571803623}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &966734317
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 966734305}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7fe951fd3566984e9043e9940117330, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text3: {fileID: 1925574709}
+  Coinsound2: {fileID: 205430335}
+  moveSpeed: -1
 --- !u!1 &995580260 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8920536151001774626, guid: 99367e0c234431d4a931aa207296d46f, type: 3}
@@ -2750,6 +2862,95 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   sortingLayerName: Default
   orderInLayer: 1
+--- !u!1001 &1571803623
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    serializedVersion: 3
+    m_TransformParent: {fileID: 667662612}
+    m_Modifications:
+    - target: {fileID: -5785079980244407646, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_IsTrigger
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -7
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 980240041239765729, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1511578417364245062, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_GravityScale
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136637261404170513, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_Name
+      value: Litedoge
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136637261404170513, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_TagString
+      value: Litecoin
+      objectReference: {fileID: 0}
+    - target: {fileID: 8437000974099062269, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 348b870958ea9a4468d40d65c064d2e3, type: 3}
+    m_RemovedComponents:
+    - {fileID: 0}
+    m_RemovedGameObjects: []
+    m_AddedGameObjects: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6136637261404170513, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 966734317}
+  m_SourcePrefab: {fileID: 100100000, guid: 2ca9176379e13e148a2014c59bc2c4b2, type: 3}
 --- !u!1 &1608739954
 GameObject:
   m_ObjectHideFlags: 0
@@ -4367,8 +4568,10 @@ SceneRoots:
   - {fileID: 1265819199}
   - {fileID: 1882334778}
   - {fileID: 1367323495}
+  - {fileID: 61848015}
   - {fileID: 165118549}
   - {fileID: 509339395}
+  - {fileID: 667662612}
   - {fileID: 1153485197}
   - {fileID: 346412030}
   - {fileID: 205430338}

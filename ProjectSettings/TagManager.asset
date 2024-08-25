@@ -26,6 +26,8 @@ TagManager:
   - wingedLitecoin
   - wingedBitcoin
   - wingedIOARToken
+  - button
+  - Litedoge
   layers:
   - Default
   - TransparentFX
